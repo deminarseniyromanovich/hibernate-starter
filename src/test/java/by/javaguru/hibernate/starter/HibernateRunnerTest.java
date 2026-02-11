@@ -4,7 +4,9 @@ import by.javaguru.hibernate.starter.entity.User;
 import jakarta.persistence.Table;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Field;
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -32,6 +34,9 @@ class HibernateRunnerTest {
                 .map(table -> table.schema() + "." + table.name())
                 .orElse(user.getClass().getName());
 
+        Field[] fields = user.getClass().getDeclaredFields();
+
+        Arrays.stream(fields)
 
     }
 
